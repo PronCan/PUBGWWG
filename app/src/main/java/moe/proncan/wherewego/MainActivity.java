@@ -55,11 +55,10 @@ public class MainActivity extends Activity {
                         case MotionEvent.ACTION_DOWN :
                             points.add(new Point(event.getX(), event.getY(), false));
                     }
+                    System.out.println(points.toString());
                     return true;
                 }
             });
-
-
         }
 
         @Override
@@ -67,7 +66,7 @@ public class MainActivity extends Activity {
             super.onDraw(canvas);
             Paint p = new Paint();
             p.setColor(Color.BLUE);
-            p.setStrokeWidth(3);
+            p.setStrokeWidth(10);
             for(int i=1; i<points.size(); i++) {
                 if(!points.get(i).isDraw) continue;
                 canvas.drawLine(points.get(i-1).x, points.get(i-1).y, points.get(i).x, points.get(i).y, p);
